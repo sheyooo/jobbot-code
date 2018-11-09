@@ -12,10 +12,6 @@ type State = {
   body: string
 };
 
-const styles = {
-  card: { boxShadow: '0 4px 6px 0 rgba(0,0,0,0.2)'}
-};
-
 export default class Post extends React.Component<Props, State> {
 
   constructor(props: any) {
@@ -58,7 +54,7 @@ export default class Post extends React.Component<Props, State> {
   
             <CardText>{this.state.body}</CardText>
             <a href="javascript:;" onClick={this.toggleTruncate}>
-              { this.state.isTruncated ? 'Show more' : 'Show less' }
+              { this.state.isTruncated ? 'Read more' : 'Show less' }
             </a>
           </CardBody>
         </Card>

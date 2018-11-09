@@ -64,8 +64,8 @@ export default class Example extends React.Component<Props, State> {
     return (
       <div>
         <Navbar style={styles.navbarStyle} expand="md">
-          <NavbarBrand tag={Link} to="/posts">
-            <i className="fa fa-feed"></i>
+          <NavbarBrand className="mr-lg-5" tag={Link} to="/posts">
+            <i className="fa fa-home"></i>
           </NavbarBrand>
 
           <Nav className="" navbar>
