@@ -13,7 +13,6 @@ import Posts from "./containers/Posts.container";
 import PostDetails from "./containers/PostDetails.container";
 
 function App(props: any) {
-  console.log(props)
   let spinnerClassName = 'request-spinner-container';
   if (props.isLoading) {
     spinnerClassName += ' display-spinner';

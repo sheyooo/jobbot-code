@@ -50,7 +50,7 @@ class PostDetails extends React.Component<Props, { comment: string }> {
   displayComment = (comment: any) =>
     <Comment key={comment.id + comment.body} comment={comment}></Comment>;
 
-  addCommentBlock = (
+  addCommentBlock = () => (
     <Card>
       <CardBody>
         <Input value={this.state.comment} onChange={ev => this.setState({ comment: ev.target.value.trim() })} type="textarea" style={{ backgroundColor: 'rgba(0,0,0,0.05)', color: 'var(--purple)' }}></Input>
@@ -88,19 +88,23 @@ class PostDetails extends React.Component<Props, { comment: string }> {
     );
 
     return (
-      <div className="d-flex flex-column py-2">
-        { post ? postComponent : <EmptyBlock /> }
+      <Row>
+        <Col xs="12" lg="6" className="m-auto">
+          <div className="d-flex flex-column py-2">
+            { post ? postComponent : <EmptyBlock /> }
 
-        <div className="p-2">
-          <p className="text-purple m-0 font-weight-bold">Comments</p>
-        </div>
+            <div className="p-2">
+              <p className="text-purple m-0 font-weight-bold">Comments</p>
+            </div>
 
-        <div className="flex-grow-1 overflow-auto">
-          { this.addCommentBlock }
-          { commentsBlock }
-          { comments.length > 0 && this.loadMoreButtonBlock }
-        </div>
-      </div>
+            <div className="flex-grow-1 overflow-auto">
+              { this.addCommentBlock() }
+              { commentsBlock }
+              { comments.length > 0 && this.loadMoreButtonBlock }
+            </div>
+          </div>
+        </Col>
+      </Row>
     );
   }
 }

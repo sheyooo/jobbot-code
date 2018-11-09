@@ -61,6 +61,10 @@ button:focus {
   color: var(--purple);
 }
 
+.dropdown-item.no-active {
+  background: none;
+}
+
 @keyframes mr-spinner {
   to {transform: rotate(360deg);}
 }

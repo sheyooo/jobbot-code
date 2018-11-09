@@ -7,6 +7,8 @@ type postState = {
 
 export const postReducer = (state: postState = {}, action: any) => {
   switch (action.type) {
+    case TYPES.FETCH_POST:
+      return {};
     case TYPES.FETCH_POST_SUCCESS:
       return action.payload;
     case TYPES.FETCH_MORE_COMMENTS_IN_POST_SUCCESS:

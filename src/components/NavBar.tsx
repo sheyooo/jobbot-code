@@ -13,6 +13,7 @@ import {
   DropdownItem
 } from "reactstrap";
 
+import { matchPath } from "react-router";
 import { Link, NavLink as RNavLink } from "react-router-dom";
 
 const styles = {
@@ -24,7 +25,7 @@ const styles = {
   }
 };
 
-type Props = {};
+type Props = { };
 
 type State = {
   isOpen: boolean;
@@ -45,6 +46,20 @@ export default class Example extends React.Component<Props, State> {
     });
   }
 
+  getPageInfo() {
+    let pageNavTitle = 'All Posts';
+    const match: any = matchPath(
+      window.location.pathname,
+      { path: '/posts/:postId' }
+    );
+
+    if (match) {
+      pageNavTitle = 'Post ID: ' + match.params.postId;
+    }
+
+    return pageNavTitle;
+  }
+
   render() {
     return (
       <div>
@@ -57,7 +72,7 @@ export default class Example extends React.Component<Props, State> {
             <NavItem>
               <p className="mb-0 text-purple">
                 <i className="fa fa-file-text-o mr-1"></i>
-                All Posts
+                { this.getPageInfo() }
               </p>
             </NavItem>
           </Nav>
@@ -65,13 +80,13 @@ export default class Example extends React.Component<Props, State> {
             <i className="fa fa-bars text-purple"></i>
           </NavbarToggler>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="" navbar>
-              {/* <NavItem>
+            {/* <Nav className="" navbar>
+              <NavItem>
                 <NavLink activeClassName="active" tag={RNavLink} to="/posts">
-                  Feed
+                  Home
                 </NavLink>
-              </NavItem> */}
-            </Nav>
+              </NavItem>
+            </Nav> */}
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="https://github.com/sheyooo/jobbot-code">
@@ -80,13 +95,14 @@ export default class Example extends React.Component<Props, State> {
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Options
+                  Actions
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Option 1</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem>Name: Seyi Adekoya</DropdownItem>
+                  <DropdownItem className="no-active">
+                    <a style={{color: 'black'}} href="mailto:seyiadekoya.sa@gmail.com">Contact Seyi</a>
+                  </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
