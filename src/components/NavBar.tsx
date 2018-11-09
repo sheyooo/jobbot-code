@@ -89,7 +89,7 @@ export default class Example extends React.Component<Props, State> {
             </Nav> */}
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="https://github.com/sheyooo/jobbot-code">
+                <NavLink target="_blank" href="https://github.com/sheyooo/jobbot-code">
                   Source Code
                 </NavLink>
               </NavItem>
